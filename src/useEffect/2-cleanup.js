@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const useEffectCleanup = () => {
+const UseEffectCleanup = () => {
     const [size, setSize] = useState(window.innerWidth);
 
     const checkSize = () => {
@@ -24,4 +24,4 @@ const useEffectCleanup = () => {
     );
 };
 
-export default useEffectCleanup;
+export default UseEffectCleanup;

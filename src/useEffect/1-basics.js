@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const useEffectBasics = () => {
+const UseEffectBasics = () => {
     const [value, setValue] = useState(0);
     useEffect(()=>{
         if (value > 0 ) {
@@ -14,4 +14,4 @@ const useEffectBasics = () => {
     </>);
 };
 
-export default useEffectBasics;
+export default UseEffectBasics;

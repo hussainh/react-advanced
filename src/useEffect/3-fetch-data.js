@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const url = 'https://api.github.com/users';
 
-const useEffectFetchData = () => {
+const UseEffectFetchData = () => {
     const [users, setUsers] = useState([]);
 
     const getUsers = async() => {
@@ -39,4 +39,4 @@ const useEffectFetchData = () => {
     );
 };
 
-export default useEffectFetchData;
+export default UseEffectFetchData;
