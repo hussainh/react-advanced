@@ -1,6 +1,5 @@
 import React from "react";
-import Setup from './conditional-rendering/3-show-hide';
-
+import Setup from './forms/1-controlled-inputs'
 function App() {
   return (
     <div className="container">
