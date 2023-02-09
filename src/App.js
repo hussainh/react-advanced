@@ -1,5 +1,6 @@
 import React from "react";
-import Setup from './forms/1-controlled-inputs'
+import Setup from './forms/2-multiple-inputs'
+
 function App() {
   return (
     <div className="container">
