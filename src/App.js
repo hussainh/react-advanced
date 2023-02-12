@@ -1,10 +1,10 @@
 import React from "react";
-import Setup from './useRef/basics'
+import Final from './useReducer'
 
 function App() {
   return (
     <div className="container">
-      <Setup />
+      <Final />
     </div>
   );
 }
