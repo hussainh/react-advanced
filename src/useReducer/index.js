@@ -3,7 +3,17 @@ import Modal from "./Modal";
 import { data } from "../data";
 
 const reducer = (state, action) => {
-
+    console.log(state, action);
+    if (action.type === "TESTING") {  
+        console.log("inside if statement");      
+        return {            
+            ...state,
+            people: data,
+            isModalOpen: true,
+            modalContent: 'item added'
+        };
+    }
+    return state;
 };
 
 const defaultState = {
@@ -20,15 +30,15 @@ const Index = () => {
         e.preventDefault();
 
         if (name) {
-
+            dispatch({ type: "TESTING" });
         } else {
             
         }
     };
-    
+
     return (
         <>
-            {state.isModalOpen && <Modal modalContent = { state.modalContent }/>}
+            {state.isModalOpen && (<Modal modalContent = { state.modalContent } />)}
             <form onSubmit={handleSubmit} className="form">
                 <div>
                     <input 
@@ -40,7 +50,7 @@ const Index = () => {
             </form>
             { state.people.map((person) => {
                 return (
-                    <div key={person.id}>
+                    <div key={person.id} className="item">
                         <h4>{person.name}</h4>
                     </div>
                 );
