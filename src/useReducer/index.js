@@ -3,17 +3,32 @@ import Modal from "./Modal";
 import { data } from "../data";
 
 const reducer = (state, action) => {
-    console.log(state, action);
-    if (action.type === "TESTING") {  
-        console.log("inside if statement");      
+    if (action.type === "ADD_ITEM") {  
+        const newPerson = [...state.people, action.payload];    
         return {            
             ...state,
-            people: data,
+            people: newPerson,
             isModalOpen: true,
             modalContent: 'item added'
         };
     }
-    return state;
+    
+    if (action.type === "NO_VALUE") {
+        return {
+            ...state,
+            isModalOpen: true,
+            modalContent: "please enter a value"
+        };
+    }
+
+    if (action.type === "CLOSE_MODAL") {
+        return {
+            ...state,
+            isModalOpen: false
+        };
+    }
+
+    throw new Error("no matching action type");
 };
 
 const defaultState = {
@@ -30,15 +45,21 @@ const Index = () => {
         e.preventDefault();
 
         if (name) {
-            dispatch({ type: "TESTING" });
+            const newPerson = {id: new Date().getTime().toString(), name};
+            dispatch({ type: "ADD_ITEM", payload: newPerson });
+            setName("");
         } else {
-            
+            dispatch({ type: "NO_VALUE" });            
         }
     };
 
+    const closeModal = () => {
+        dispatch({ type: "CLOSE_MODAL" });
+    }
+
     return (
         <>
-            {state.isModalOpen && (<Modal modalContent = { state.modalContent } />)}
+            {state.isModalOpen && (<Modal closeModal = { state.closeModal } modalContent = { state.modalContent } />)}
             <form onSubmit={handleSubmit} className="form">
                 <div>
                     <input 
