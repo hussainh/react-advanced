@@ -5,9 +5,8 @@ const Modal = ({ modalContent, closeModal }) => {
         setTimeout(() => {
             closeModal();
         }, 3000);
-    }
-
-    );
+    });
+    
     return (
         <div className="modal">
             <p> { modalContent } </p>

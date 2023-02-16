@@ -27,6 +27,22 @@ const reducer = (state, action) => {
             isModalOpen: false
         };
     }
+    
+    if (action.type === "REMOVE_ITEM") {
+        
+        const personName = action.payload.name;
+        
+        const newListOfPeople = state.people.filter( 
+            (person) => person.id !== action.payload.id
+        );
+
+        return {
+            ...state,
+            isModalOpen: true,
+            modalContent: personName + " removed",
+            people: newListOfPeople
+        };
+    }
 
     throw new Error("no matching action type");
 };
@@ -59,7 +75,7 @@ const Index = () => {
 
     return (
         <>
-            {state.isModalOpen && (<Modal closeModal = { state.closeModal } modalContent = { state.modalContent } />)}
+            {state.isModalOpen && (<Modal closeModal = { closeModal } modalContent = { state.modalContent } />)}
             <form onSubmit={handleSubmit} className="form">
                 <div>
                     <input 
@@ -73,6 +89,11 @@ const Index = () => {
                 return (
                     <div key={person.id} className="item">
                         <h4>{person.name}</h4>
+                        <button onClick={() => 
+                            dispatch({ type: "REMOVE_ITEM",
+                                payload: person
+                            })
+                        }>remove</button>
                     </div>
                 );
             })}
