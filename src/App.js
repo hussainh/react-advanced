@@ -1,5 +1,5 @@
 import React from "react";
-import Final from './useReducer'
+import Final from './prop-drilling'
 
 function App() {
   return (
