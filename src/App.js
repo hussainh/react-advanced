@@ -1,10 +1,10 @@
 import React from "react";
-import Final from './context-api'
+import MainComponent from './custom-hooks/fetch-example'
 
 function App() {
   return (
     <div className="container">
-      <Final />
+      <MainComponent />
     </div>
   );
 }
