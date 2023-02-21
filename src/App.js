@@ -1,5 +1,5 @@
 import React from "react";
-import MainComponent from './custom-hooks/fetch-example'
+import MainComponent from './prop-types'
 
 function App() {
   return (
