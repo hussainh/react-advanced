@@ -1,5 +1,5 @@
 import React from "react";
-import MainComponent from './prop-types'
+import MainComponent from './router'
 
 function App() {
   return (
