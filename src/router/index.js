@@ -9,21 +9,14 @@ import Navbar from './Navbar';
 
 const ReactRouter = () => {
     return (
-        <Routes>
-            <Route path="/" element={<Home />} />
-            
-            {/* <Route path="/about">
-                <About />
-            </Route>
-
-            <Route path="/people">
-                <People />
-            </Route>
-
-            <Route path="/">
-                <Home />
-            </Route> */}
-        </Routes>
+        <Router>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                {/* <Route path="/" element={<About />} />
+                <Route path="/" element={<People />} />
+                <Route path="/" element={<Person />} />             */}
+            </Routes>
+        </Router>
         
     );
 };
