@@ -12,9 +12,8 @@ const ReactRouter = () => {
         <Router>
             <Routes>
                 <Route path="/" element={<Home />} />
-                {/* <Route path="/" element={<About />} />
-                <Route path="/" element={<People />} />
-                <Route path="/" element={<Person />} />             */}
+                <Route path="/about" element={<About />} />
+                <Route path="/people" element={<People />} />         
             </Routes>
         </Router>
         
