@@ -14,6 +14,7 @@ const ReactRouter = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/people" element={<People />} />         
+                <Route path="*" element={<Error />} />         
             </Routes>
         </Router>
         
