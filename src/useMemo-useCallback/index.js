@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from "react";
+import React, { useState, useCallback, useMemo, useEffect } from "react";
 import { useFetch } from "../custom-hooks/useFetch";
 
 const url = "https://course-api.com/javascript-store-products";
@@ -22,17 +22,26 @@ const Index = () => {
     );
 };
 
-const BigList = ({products}) => {
+const BigList = React.memo(({ products }) => {
+    useEffect(() => {
+        console.log("big list called");
+    });
+
     return (
         <section className="products">
             {products.map((product) => {
-                return <SingleProduct key={product.id} {...product}></SingleProduct>
+                return <SingleProduct key={product.id} {...product}></SingleProduct>;
             })}
         </section>
     );
-};
+});
 
 const SingleProduct = ({fields}) => {
+        
+    useEffect(() => {
+        console.log("single item called");
+    });
+
     let { name, price } = fields;
     price = price / 100;
 
