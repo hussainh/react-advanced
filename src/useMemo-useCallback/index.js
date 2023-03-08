@@ -3,6 +3,17 @@ import { useFetch } from "../custom-hooks/useFetch";
 
 const url = "https://course-api.com/javascript-store-products";
 
+const calculateMostExpensiveFurniture = (data) => {
+    return (
+        data.reduce((total, item) => {
+            const price = item.fields.price;
+            if (price >= total) {
+                total = price;
+            }
+            return total;
+        }, 0)/100
+    );
+};
 const Index = () => {
     const { products } = useFetch(url);
     const [count, setCount] = useState(0);
@@ -23,7 +34,7 @@ const Index = () => {
             </button>
 
             <h1 style={{marginTop: "3rem"}}>Cart: { cart }</h1>
-            
+            <h1>Most Expensive: ${calculateMostExpensiveFurniture(products)}</h1>
             <BigList products = {products} addToCart={addToCart} />
         </>
     );
