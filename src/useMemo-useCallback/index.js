@@ -38,7 +38,7 @@ const Index = () => {
             </button>
 
             <h1 style={{marginTop: "3rem"}}>Cart: { cart }</h1>
-            <h1>Most Expensive: ${mostExpensiveItem(products)}</h1>
+            <h1>Most Expensive: ${mostExpensiveItem}</h1>
             <BigList products = {products} addToCart={addToCart} />
         </>
     );
